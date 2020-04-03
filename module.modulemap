@@ -1,0 +1,11 @@
+module Clibsshlinux [system] {
+    header "/usr/include/libssh/libssh.h"
+    link "libssh"
+    export *
+}
+
+module Clibsshmac [system] {
+    header "/usr/local/include/libssh/libssh.h"
+    link "libssh"
+    export *
+}
