@@ -5,13 +5,17 @@ import PackageDescription
 
 let package = Package(
     name: "SwiftLibssh",
-    pkgConfig: "libssh",
-    providers: [
-        .brew(["libssh"]),
-        .apt(["libssh-dev"])
+    products: [
+        .library(name: "SwiftLibssh", targets: ["SwiftLibssh"])
     ],
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
+    targets:[
+        .systemLibrary(
+            name: "SwiftLibssh",
+            pkgConfig: "libssh",
+            providers: [
+                .brew(["libssh"]),
+                .apt(["libssh-dev"])
+            ]
+        )
     ]
 )
